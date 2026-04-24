@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>機場接送預約</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <header class="header">
+      <div class="back">‹</div>
+      <div class="title">機場接送預約</div>
+      <div class="close">關閉</div>
+    </header>
+
+    <form id="transferForm">
+
+      <section>
+        <h2>基本資訊</h2>
+
+        <div class="field">
+          <label>姓名</label>
+          <input type="text" name="name" placeholder="請輸入您的姓名" required />
+        </div>
+
+        <div class="field">
+          <label>聯絡電話</label>
+          <input type="tel" name="phone" placeholder="請輸入手機號碼" required />
+        </div>
+      </section>
+
+      <section>
+        <h2>行程資訊</h2>
+
+        <div class="field">
+          <label>服務類型</label>
+          <div class="radio-group">
+            <label><input type="radio" name="serviceType" value="接機" checked /> 接機</label>
+            <label><input type="radio" name="serviceType" value="送機" /> 送機</label>
+            <label><input type="radio" name="serviceType" value="包車" /> 包車</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>日期</label>
+          <input type="date" name="date" required />
+        </div>
+
+        <div class="field">
+          <label>時間</label>
+          <input type="time" name="time" required />
+        </div>
+
+        <div class="field">
+          <label>航班號碼</label>
+          <input type="text" name="flightNo" placeholder="例如 BR178" />
+        </div>
+
+        <div class="field">
+          <label>下車地點</label>
+          <input type="text" name="dropoff" placeholder="請輸入下車地點" required />
+        </div>
+      </section>
+
+      <section>
+        <h2>其他資訊</h2>
+
+        <div class="field">
+          <label>人數</label>
+          <select name="passengers" required>
+            <option value="1位">1 位</option>
+            <option value="2位" selected>2 位</option>
+            <option value="3位">3 位</option>
+            <option value="4位">4 位</option>
+            <option value="5位以上">5 位以上</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>行李數</label>
+          <select name="luggage" required>
+            <option value="0件">0 件</option>
+            <option value="1件">1 件</option>
+            <option value="2件" selected>2 件</option>
+            <option value="3件">3 件</option>
+            <option value="4件以上">4 件以上</option>
+          </select>
+        </div>
+
+        <div class="field textarea-field">
+          <label>備註</label>
+          <textarea name="note" placeholder="請輸入備註"></textarea>
+        </div>
+      </section>
+
+      <input type="hidden" name="lineDisplayName" id="lineDisplayName" />
+      <input type="hidden" name="lineUserId" id="lineUserId" />
+
+      <button type="submit" id="submitBtn">送出預約</button>
+
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
