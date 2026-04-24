@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>機場接送預約</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- LIFF SDK -->
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
 
@@ -15,12 +13,11 @@
     <header class="header">
       <div class="back">‹</div>
       <div class="title">機場接送預約</div>
-      <div class="close">關閉</div>
+      <div></div>
     </header>
 
     <form id="transferForm">
 
-      <!-- 基本資訊 -->
       <section>
         <h2>基本資訊</h2>
 
@@ -35,7 +32,6 @@
         </div>
       </section>
 
-      <!-- 行程資訊 -->
       <section>
         <h2>行程資訊</h2>
 
@@ -64,7 +60,7 @@
         </div>
 
         <div class="field">
-          <label id="locationLabel">上下車地點</label>
+          <label>上下車地點</label>
           <input type="text" name="location" required />
         </div>
 
@@ -78,26 +74,17 @@
         </div>
       </section>
 
-      <!-- 其他 -->
       <section>
         <h2>其他資訊</h2>
 
         <div class="field">
           <label>人數</label>
-          <select name="passengers">
-            <option value="1位">1位</option>
-            <option value="2位" selected>2位</option>
-            <option value="3位">3位</option>
-          </select>
+          <input type="number" name="passengers" min="1" placeholder="請輸入人數" required />
         </div>
 
         <div class="field">
           <label>行李數</label>
-          <select name="luggage">
-            <option value="1件">1件</option>
-            <option value="2件" selected>2件</option>
-            <option value="3件">3件</option>
-          </select>
+          <input type="number" name="luggage" min="0" placeholder="請輸入行李數" required />
         </div>
 
         <div class="field textarea-field">
@@ -107,6 +94,7 @@
       </section>
 
       <button type="submit">送出預約</button>
+
     </form>
   </div>
 
