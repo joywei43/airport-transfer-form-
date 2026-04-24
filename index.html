@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>機場接送預約</title>
   <link rel="stylesheet" href="style.css" />
-</head>
-<body>
 
+  <!-- LIFF SDK -->
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+
+<body>
   <div class="app">
     <header class="header">
       <div class="back">‹</div>
@@ -23,12 +26,12 @@
 
         <div class="field">
           <label>姓名</label>
-          <input type="text" name="name" placeholder="請輸入您的姓名" required />
+          <input type="text" name="name" required />
         </div>
 
         <div class="field">
           <label>聯絡電話</label>
-          <input type="tel" name="phone" placeholder="請輸入手機號碼" required />
+          <input type="tel" name="phone" required />
         </div>
       </section>
 
@@ -57,83 +60,56 @@
 
         <div class="field">
           <label>航班號碼</label>
-          <input type="text" name="flightNo" placeholder="例如 BR178" />
+          <input type="text" name="flightNo" />
         </div>
 
-        <!-- 🔥 地點（會動態變化） -->
         <div class="field">
           <label id="locationLabel">下車地點</label>
-          <input type="text" name="location" placeholder="請輸入地點" required />
+          <input type="text" name="location" required />
         </div>
 
-        <!-- 🔥 車種 -->
         <div class="field">
           <label>車種</label>
-          <select name="carType" required>
+          <select name="carType">
             <option value="小車">小車</option>
             <option value="進口車">進口車</option>
             <option value="大車">大車</option>
           </select>
         </div>
-
       </section>
 
-      <!-- 其他資訊 -->
+      <!-- 其他 -->
       <section>
         <h2>其他資訊</h2>
 
         <div class="field">
           <label>人數</label>
-          <select name="passengers" required>
-            <option value="1位">1 位</option>
-            <option value="2位" selected>2 位</option>
-            <option value="3位">3 位</option>
-            <option value="4位">4 位</option>
-            <option value="5位以上">5 位以上</option>
+          <select name="passengers">
+            <option value="1位">1位</option>
+            <option value="2位" selected>2位</option>
+            <option value="3位">3位</option>
           </select>
         </div>
 
         <div class="field">
           <label>行李數</label>
-          <select name="luggage" required>
-            <option value="0件">0 件</option>
-            <option value="1件">1 件</option>
-            <option value="2件" selected>2 件</option>
-            <option value="3件">3 件</option>
-            <option value="4件以上">4 件以上</option>
+          <select name="luggage">
+            <option value="1件">1件</option>
+            <option value="2件" selected>2件</option>
+            <option value="3件">3件</option>
           </select>
         </div>
 
         <div class="field textarea-field">
           <label>備註</label>
-          <textarea name="note" placeholder="請輸入備註"></textarea>
+          <textarea name="note"></textarea>
         </div>
       </section>
 
       <button type="submit">送出預約</button>
-
     </form>
   </div>
 
-  <script>
-    // 🔥 動態切換 上/下車地點
-    const radios = document.querySelectorAll('input[name="serviceType"]');
-    const label = document.getElementById("locationLabel");
-
-    function updateLabel() {
-      const selected = document.querySelector('input[name="serviceType"]:checked').value;
-
-      if (selected === "接機") {
-        label.textContent = "下車地點";
-      } else {
-        label.textContent = "上車地點";
-      }
-    }
-
-    radios.forEach(radio => {
-      radio.addEventListener("change", updateLabel);
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
