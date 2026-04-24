@@ -17,6 +17,7 @@
 
     <form id="transferForm">
 
+      <!-- 基本資訊 -->
       <section>
         <h2>基本資訊</h2>
 
@@ -31,6 +32,7 @@
         </div>
       </section>
 
+      <!-- 行程資訊 -->
       <section>
         <h2>行程資訊</h2>
 
@@ -58,12 +60,25 @@
           <input type="text" name="flightNo" placeholder="例如 BR178" />
         </div>
 
+        <!-- 🔥 地點（會動態變化） -->
         <div class="field">
-          <label>上下車地點</label>
-          <input type="text" name="dropoff" placeholder="請輸入下車地點" required />
+          <label id="locationLabel">下車地點</label>
+          <input type="text" name="location" placeholder="請輸入地點" required />
         </div>
+
+        <!-- 🔥 車種 -->
+        <div class="field">
+          <label>車種</label>
+          <select name="carType" required>
+            <option value="小車">小車</option>
+            <option value="進口車">進口車</option>
+            <option value="大車">大車</option>
+          </select>
+        </div>
+
       </section>
 
+      <!-- 其他資訊 -->
       <section>
         <h2>其他資訊</h2>
 
@@ -95,14 +110,30 @@
         </div>
       </section>
 
-      <input type="hidden" name="lineDisplayName" id="lineDisplayName" />
-      <input type="hidden" name="lineUserId" id="lineUserId" />
-
-      <button type="submit" id="submitBtn">送出預約</button>
+      <button type="submit">送出預約</button>
 
     </form>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    // 🔥 動態切換 上/下車地點
+    const radios = document.querySelectorAll('input[name="serviceType"]');
+    const label = document.getElementById("locationLabel");
+
+    function updateLabel() {
+      const selected = document.querySelector('input[name="serviceType"]:checked').value;
+
+      if (selected === "接機") {
+        label.textContent = "下車地點";
+      } else {
+        label.textContent = "上車地點";
+      }
+    }
+
+    radios.forEach(radio => {
+      radio.addEventListener("change", updateLabel);
+    });
+  </script>
+
 </body>
 </html>
