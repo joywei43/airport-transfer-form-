@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>寰宇VIP快速通關服務</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="back">‹</div>
+      <div class="title">寰宇VIP快速通關</div>
+      <div></div>
+    </header>
+
+    <form id="vipClearanceForm">
+
+      <section>
+        <h2>寰宇VIP快速通關服務</h2>
+
+        <div style="padding: 18px; line-height: 1.8; font-size: 16px;">
+          喜程專車提供【寰宇VIP快速通關】服務<br>
+          ✔ 商務出行首選<br>
+          ✔ 快速通關，準時抵達<br>
+          讓您省去排隊時間，輕鬆尊榮出境 ✈️
+        </div>
+      </section>
+
+      <section>
+        <h2>預約資訊</h2>
+
+        <div class="field">
+          <label>日期</label>
+          <input type="date" name="date" required />
+        </div>
+
+        <div class="field">
+          <label>時間</label>
+          <input type="time" name="time" required />
+        </div>
+
+        <div class="field">
+          <label>航班</label>
+          <input type="text" name="flightNo" placeholder="例如 BR169" required />
+        </div>
+
+        <div class="field">
+          <label>護照姓名</label>
+          <input type="text" name="passportName" placeholder="請填寫中英文護照姓名" required />
+        </div>
+
+        <div class="field">
+          <label>出生年月日</label>
+          <input type="date" name="birthday" required />
+        </div>
+
+        <div class="field">
+          <label>護照號碼</label>
+          <input type="text" name="passportNo" required />
+        </div>
+      </section>
+
+      <section>
+        <div style="padding: 18px; line-height: 1.8; font-size: 15px; color: #555;">
+          請一併提供護照個人資料頁照片，以利作業，收到資料後，我們將盡快為您安排，謝謝您 😊
+        </div>
+      </section>
+
+      <button type="submit">送出預約</button>
+
+    </form>
+  </div>
+
+  <script src="vip-clearance.js"></script>
+</body>
+</html>
